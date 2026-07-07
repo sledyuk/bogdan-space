@@ -1,0 +1,35 @@
+---
+import fs from 'node:fs';
+import Cover from './Cover.astro';
+
+const hasWeb = fs.existsSync('public/assets/work/daysync-web.png');
+const hasMobile = fs.existsSync('public/assets/work/daysync-mobile.png');
+const hasShots = hasWeb && hasMobile;
+---
+
+{hasShots ? (
+  <div class="frames">
+    <div class="browser">
+      <div class="bar"><span></span><span></span><span></span></div>
+      <img src="/assets/work/daysync-web.png" alt="DaySync web dashboard" loading="lazy" width="720" height="450" />
+    </div>
+    <div class="phone">
+      <div class="notch"></div>
+      <img src="/assets/work/daysync-mobile.png" alt="DaySync mobile app" loading="lazy" width="220" height="450" />
+    </div>
+  </div>
+) : (
+  <Cover slug="daysync" name="DaySync" />
+)}
+
+<style>
+  .frames{ display:flex; align-items:flex-end; gap:1rem; padding:1.4rem 1.4rem 0; height:100%; }
+  .browser{ flex:1; border:1px solid var(--line-2); border-bottom:0; border-radius:10px 10px 0 0; overflow:hidden; background:#fff; }
+  .browser .bar{ display:flex; gap:5px; padding:8px 10px; border-bottom:1px solid var(--line); }
+  .browser .bar span{ width:8px; height:8px; border-radius:50%; background:var(--line-2); }
+  .browser img{ width:100%; height:auto; object-fit:cover; object-position:top; }
+  .phone{ width:130px; flex:none; border:1px solid var(--line-2); border-bottom:0; border-radius:18px 18px 0 0; overflow:hidden; background:#fff; position:relative; }
+  .phone .notch{ position:absolute; top:6px; left:50%; transform:translateX(-50%); width:36px; height:5px; border-radius:99px; background:var(--line-2); }
+  .phone img{ width:100%; height:auto; object-fit:cover; object-position:top; }
+  @media (max-width:560px){ .phone{ display:none; } }
+</style>

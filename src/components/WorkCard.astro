@@ -1,0 +1,63 @@
+---
+import Cover from './Cover.astro';
+import DeviceFrames from './DeviceFrames.astro';
+import type { Project } from '../data/site';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+const Tag = project.link ? 'a' : 'div';
+---
+
+<Tag
+  class:list={['card', { flagship: project.flagship }]}
+  {...(project.link ? { href: project.link, target: '_blank', rel: 'noopener' } : {})}
+>
+  <div class="visual">
+    {project.flagship ? <DeviceFrames /> : <Cover slug={project.slug} name={project.name} />}
+  </div>
+  <div class="body">
+    <div class="head">
+      <h3>{project.name}</h3>
+      {project.link && <span class="arw" aria-hidden="true">↗</span>}
+    </div>
+    <p class="role">{project.role}{project.agentic && ' · agentic build'}</p>
+    <p class="outcome">{project.outcome}</p>
+    <ul class="tags">
+      {project.stack.map((s) => <li>{s}</li>)}
+    </ul>
+  </div>
+</Tag>
+
+<style>
+  .card{
+    display:flex; flex-direction:column; border:1px solid var(--line); border-radius:14px;
+    background:var(--paper); overflow:hidden;
+    transition:transform .3s var(--ease), border-color .3s var(--ease);
+  }
+  .card:hover{ transform:translateY(-4px); border-color:var(--line-2); }
+  .visual{ aspect-ratio:400/240; overflow:hidden; border-bottom:1px solid var(--line); }
+  .visual > :global(*){ transition:transform .4s var(--ease); }
+  .card:hover .visual > :global(*){ transform:scale(1.03); }
+  .body{ padding:1.15rem 1.25rem 1.3rem; display:flex; flex-direction:column; gap:.45rem; flex:1; }
+  .head{ display:flex; align-items:baseline; justify-content:space-between; gap:.6rem; }
+  .head h3{ font-size:1.05rem; }
+  .arw{ font-family:var(--mono); color:var(--ink-3); transition:transform .25s var(--ease), color .2s; }
+  .card:hover .arw{ transform:translate(3px,-3px); color:var(--ink); }
+  .role{ font-size:.8rem; color:var(--accent); font-weight:500; }
+  .outcome{ font-size:.88rem; color:var(--ink-2); line-height:1.55; }
+  .tags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:auto; padding-top:.6rem; }
+  .tags li{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-3); border:1px solid var(--line); border-radius:99px; padding:.2rem .6rem;
+  }
+
+  .flagship{ grid-column:1 / -1; flex-direction:row; }
+  .flagship .visual{ flex:1.15; aspect-ratio:auto; border-bottom:0; border-right:1px solid var(--line); }
+  .flagship .body{ flex:1; padding:1.6rem 1.7rem; justify-content:center; }
+  @media (max-width:760px){
+    .flagship{ flex-direction:column; }
+    .flagship .visual{ aspect-ratio:400/240; border-right:0; border-bottom:1px solid var(--line); flex:none; }
+  }
+</style>

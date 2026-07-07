@@ -1,0 +1,16 @@
+---
+import { projects } from '../data/site';
+import WorkCard from './WorkCard.astro';
+---
+
+<section class="wrap" id="work">
+  <div class="sec-head reveal"><h2>Selected Work</h2><span class="tag">02 — What</span></div>
+  <div class="grid reveal">
+    {projects.map((p) => <WorkCard project={p} />)}
+  </div>
+</section>
+
+<style>
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+  @media (max-width:760px){ .grid{ grid-template-columns:1fr; } }
+</style>
