@@ -1,0 +1,33 @@
+---
+import { facts } from '../data/site';
+---
+
+<div class="facts reveal" role="region" aria-label="Key facts">
+  <div class="facts-inner wrap">
+    {facts.map((f) => (
+      <div class="fact">
+        <div class="n">
+          {f.prefix}<span class="cnt" data-countup={f.value}>{f.value}</span><span class="sfx">{f.suffix}</span>
+        </div>
+        <div class="l">{f.label}</div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .facts{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .facts-inner{ display:grid; grid-template-columns:repeat(4,1fr); }
+  .fact{ padding:1.4rem 1.2rem 1.4rem 0; }
+  .fact + .fact{ border-left:1px solid var(--line); padding-left:1.4rem; }
+  .fact .n{ font-size:1.55rem; font-weight:600; letter-spacing:-.02em; line-height:1.15; }
+  .fact .n .cnt{ font-variant-numeric:tabular-nums; }
+  .fact .n .sfx{ color:var(--accent); }
+  .fact .l{ font-size:.8rem; color:var(--ink-3); margin-top:.2rem; line-height:1.4; }
+  @media (max-width:760px){
+    .facts-inner{ grid-template-columns:1fr 1fr; }
+    .fact{ padding:1.1rem 1rem 1.1rem 0; }
+    .fact:nth-child(3){ border-left:0; padding-left:0; border-top:1px solid var(--line); }
+    .fact:nth-child(4){ border-top:1px solid var(--line); }
+  }
+</style>
