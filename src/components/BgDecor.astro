@@ -1,0 +1,30 @@
+<div class="bg-decor" aria-hidden="true">
+  <div class="dots"></div>
+  <div class="ring r1" data-parallax="0.15"></div>
+  <div class="ring r2" data-parallax="0.10"></div>
+  <div class="ring r3" data-parallax="0.20"></div>
+</div>
+
+<style>
+  .bg-decor { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(20, 20, 22, 0.14) 1px, transparent 1px);
+    background-size: 20px 20px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 70% 12%, black 20%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 15% 65%, black 10%, transparent 65%);
+    mask-image: radial-gradient(ellipse 60% 50% at 70% 12%, black 20%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 15% 65%, black 10%, transparent 65%);
+    -webkit-mask-composite: source-over;
+    mask-composite: add;
+  }
+  .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(20, 20, 22, 0.10); will-change: transform; }
+  .r1 { width: 420px; height: 420px; right: -140px; top: -120px; border-color: rgba(43, 60, 240, 0.22); }
+  .r2 { width: 640px; height: 640px; right: -260px; top: -240px; }
+  .r3 { width: 340px; height: 340px; left: -150px; top: 58%; border-color: rgba(43, 60, 240, 0.14); }
+  @media (max-width: 760px) {
+    .r2 { display: none; }
+    .r1 { width: 280px; height: 280px; right: -110px; }
+  }
+  @media print { .bg-decor { display: none !important; } }
+</style>
