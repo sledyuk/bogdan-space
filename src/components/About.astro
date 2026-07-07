@@ -1,0 +1,38 @@
+---
+import { aboutParagraphs, aboutMeta } from '../data/site';
+---
+
+<section class="wrap" id="about">
+  <div class="sec-head reveal"><h2>About</h2><span class="tag">01 — Who</span></div>
+  <div class="about-grid reveal">
+    <div>
+      {aboutParagraphs.map((p) => <p set:html={p} />)}
+    </div>
+    <div class="meta">
+      {aboutMeta.map((row) => (
+        <div class="row">
+          <div class="k">{row.k}</div>
+          <div class="v">
+            {row.k === 'Based in' ? (
+              <Fragment>Tbilisi, Georgia — <span id="clockInline">UTC+4</span></Fragment>
+            ) : (
+              row.v
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid{ display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(1.6rem, 4vw, 4rem); }
+  .about-grid p{ color:var(--ink-2); line-height:1.7; }
+  .about-grid p + p{ margin-top:1rem; }
+  .about-grid p :global(a){ color:var(--ink); font-weight:500; border-bottom:1px solid var(--line-2); transition:border-color .15s, color .15s; }
+  .about-grid p :global(a:hover){ color:var(--accent); border-color:var(--accent); }
+  .meta{ display:flex; flex-direction:column; gap:1.05rem; }
+  .meta .row .k{ font-family:var(--mono); font-size:.68rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); }
+  .meta .row .v{ font-size:.94rem; font-weight:500; margin-top:.15rem; }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+</style>
