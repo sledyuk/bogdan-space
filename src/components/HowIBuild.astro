@@ -1,0 +1,41 @@
+---
+import { pipeline } from '../data/site';
+---
+
+<section class="wrap" id="how">
+  <div class="sec-head reveal"><h2>How I Build</h2><span class="tag">03 — How</span></div>
+  <div class="reveal">
+    <p class="lead">
+      I work AI-natively: agents write a large share of the code, and my job is architecture, specs, and review.
+      On my last team this raised delivery throughput <b>~40%</b> — tracked in sprint velocity, not vibes.
+    </p>
+    <ol class="pipe">
+      {pipeline.map((p, i) => (
+        <li class="node" style={`--i:${i}`}>
+          <span class="idx">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .lead{ color:var(--ink-2); max-width:56ch; line-height:1.7; }
+  .lead b{ color:var(--ink); font-weight:600; }
+  .pipe{ display:grid; grid-template-columns:repeat(5,1fr); gap:1.2rem; margin-top:2.2rem; counter-reset:node; }
+  .node{ position:relative; padding-top:1rem; }
+  .node::before{ content:""; position:absolute; top:0; left:0; right:-1.2rem; height:1px; background:var(--line-2); }
+  .node:last-child::before{ right:0; }
+  .node::after{ content:""; position:absolute; top:-3px; left:0; width:7px; height:7px; border-radius:50%; background:var(--accent); }
+  .idx{ font-family:var(--mono); font-size:.68rem; letter-spacing:.09em; color:var(--accent); }
+  .node h3{ font-size:.98rem; margin:.35rem 0 .3rem; }
+  .node p{ font-size:.84rem; color:var(--ink-2); line-height:1.55; }
+
+  :global(.js) .reveal .node{ opacity:0; transform:translateY(10px); transition:opacity .5s var(--ease), transform .5s var(--ease); transition-delay:calc(var(--i) * 90ms); }
+  :global(.js) .reveal.in .node{ opacity:1; transform:none; }
+
+  @media (max-width:900px){ .pipe{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .pipe{ grid-template-columns:1fr; } .node::before{ right:0; } }
+</style>
