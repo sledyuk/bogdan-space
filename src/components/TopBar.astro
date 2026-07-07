@@ -1,0 +1,31 @@
+---
+import { site } from '../data/site';
+---
+
+<header class="top">
+  <div class="top-inner">
+    <a class="mark" href="#hero">Bogdan Egikov<span>.</span></a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="top-cta" href={site.resumePath} download>Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .top{ position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .top-inner{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); height:58px; display:flex; align-items:center; gap:1.2rem; }
+  .mark{ font-weight:600; font-size:.95rem; letter-spacing:-.01em; margin-right:auto; }
+  .mark span{ color:var(--accent); }
+  .top-nav{ display:flex; gap:1.2rem; align-items:center; }
+  .top-nav a{ font-size:.85rem; color:var(--ink-2); transition:color .15s; }
+  .top-nav a:hover{ color:var(--ink); }
+  .top-cta{ font-size:.82rem; font-weight:500; padding:.45rem 1rem; border:1px solid var(--line-2); border-radius:100px; color:var(--ink); transition:background .18s, color .18s, border-color .18s; }
+  .top-cta:hover{ background:var(--ink); border-color:var(--ink); color:var(--paper); }
+  @media (max-width:640px){ .top-nav a:not(.top-cta){ display:none; } }
+  @media print{ .top{ display:none !important; } }
+</style>

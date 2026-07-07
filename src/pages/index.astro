@@ -1,9 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
+import TopBar from '../components/TopBar.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Base>
-  <main class="wrap">
-    <h1>Bogdan Egikov</h1>
+  <TopBar />
+  <main>
+    <Hero />
   </main>
+  <Footer />
+  <script>
+    import '../scripts/clock';
+    import '../scripts/copy-email';
+  </script>
 </Base>
