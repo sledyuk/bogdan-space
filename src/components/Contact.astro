@@ -1,0 +1,30 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="wrap contact" id="contact">
+  <div class="sec-head reveal"><h2>Contact</h2><span class="tag">06 — Say hello</span></div>
+  <div class="reveal">
+    <p class="lead">
+      Open to senior and lead engineering roles, fractional CTO work, and hard problems in fintech, health,
+      and beyond. The fastest way to reach me:
+    </p>
+    <a class="big-mail" href={`mailto:${site.email}`}>{site.email}</a>
+    <div class="alt">
+      <a class="u-link" href={site.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="u-link" href={site.resumePath} download>Download résumé ↓</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact{ padding-bottom:clamp(3rem, 8vh, 5.5rem); }
+  .contact .lead{ color:var(--ink-2); max-width:52ch; line-height:1.7; }
+  .big-mail{ display:inline-block; margin-top:1.6rem; font-size:clamp(1.7rem, 5.6vw, 3.6rem); font-weight:600; letter-spacing:-.03em; line-height:1.1; position:relative; transition:color .2s; word-break:break-all; }
+  .big-mail::after{ content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:right; transition:transform .4s var(--ease); }
+  .big-mail:hover{ color:var(--accent); }
+  .big-mail:hover::after{ transform:scaleX(1); transform-origin:left; }
+  .contact .alt{ display:flex; flex-wrap:wrap; gap:.7rem 1.6rem; margin-top:1.8rem; }
+  .contact .alt a{ font-size:.92rem; color:var(--ink-2); }
+  .contact .alt a:hover{ color:var(--ink); }
+</style>
