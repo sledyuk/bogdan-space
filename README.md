@@ -18,9 +18,11 @@ parallax, Selected Work cards, and a "How I Build" agentic-workflow section.
 All copy lives in `src/data/site.ts` — edit facts, projects, experience, and stack there
 without touching markup. The résumé PDF is `public/assets/Bogdan_Egikov_Resume.pdf`.
 
-To swap the DaySync cover for real screenshots, drop `daysync-web.png` and
-`daysync-mobile.png` into `public/assets/work/` — the flagship card picks them up
-automatically at build time (falls back to the stylized cover if absent).
+The DaySync flagship card shows `public/assets/work/daysync-web.webp` and
+`daysync-mobile.webp` (sourced from daysync.io) in CSS device frames; if either file
+is missing the card falls back to a stylized SVG cover at build time.
+
+Brand assets (avatar for Vercel/GitHub/etc.) live in `brand/`.
 
 ## Deploy (Vercel)
 
