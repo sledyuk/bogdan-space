@@ -6,11 +6,7 @@ interface Props {
 const { slug, name } = Astro.props;
 
 const motifs: Record<string, { hue: string; rings: [number, number][] }> = {
-  kvitka: { hue: '#2B3CF0', rings: [[70, 26], [40, 15]] },
-  phreesia: { hue: '#0FA36B', rings: [[60, 30], [90, 12]] },
-  trastra: { hue: '#E0662E', rings: [[80, 20], [50, 34]] },
-  velas: { hue: '#7A3CF0', rings: [[65, 22], [95, 10]] },
-  daysync: { hue: '#2B3CF0', rings: [[75, 24], [45, 18]] },
+  daysync: { hue: '#016A70', rings: [[75, 24], [45, 18]] },
 };
 const m = motifs[slug] ?? motifs.daysync!;
 ---

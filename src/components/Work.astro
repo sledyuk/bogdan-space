@@ -1,5 +1,5 @@
 ---
-import { projects } from '../data/site';
+import { projects, engagements, engagementsNote } from '../data/site';
 import WorkCard from './WorkCard.astro';
 ---
 
@@ -8,9 +8,52 @@ import WorkCard from './WorkCard.astro';
   <div class="grid reveal">
     {projects.map((p) => <WorkCard project={p} />)}
   </div>
+
+  <div class="eng reveal">
+    <p class="eng-note">{engagementsNote}</p>
+    <ol class="eng-rows">
+      {engagements.map((e) => (
+        <li class="eng-row">
+          <div class="who">
+            <h3>{e.name}</h3>
+            <p class="rl">{e.role}</p>
+          </div>
+          <div class="what">
+            <p>{e.outcome}</p>
+            <ul class="tags">
+              {e.stack.map((s) => <li>{s}</li>)}
+            </ul>
+          </div>
+          <span class="st">{e.status}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
 </section>
 
 <style>
-  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
-  @media (max-width:760px){ .grid{ grid-template-columns:1fr; } }
+  .grid{ display:grid; grid-template-columns:1fr; gap:1.2rem; }
+
+  .eng{ margin-top:2.6rem; }
+  .eng-note{ font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:1rem; }
+  .eng-rows{ border-top:1px solid var(--line); }
+  .eng-row{ display:grid; grid-template-columns:1.1fr 1.9fr auto; gap:1.2rem; align-items:baseline;
+    padding:1.35rem 0; border-bottom:1px solid var(--line); transition:padding-left .25s var(--ease); position:relative; }
+  .eng-row::before{ content:""; position:absolute; left:0; top:0; bottom:-1px; width:0; background:var(--accent); transition:width .25s var(--ease); }
+  .eng-row:hover{ padding-left:1.1rem; }
+  .eng-row:hover::before{ width:3px; }
+  .who h3{ font-size:1.02rem; line-height:1.3; }
+  .who .rl{ font-size:.8rem; color:var(--accent); font-weight:500; margin-top:.1rem; }
+  .what p{ font-size:.9rem; color:var(--ink-2); line-height:1.55; }
+  .tags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.55rem; }
+  .tags li{
+    font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-3); border:1px solid var(--line); border-radius:99px; padding:.15rem .55rem;
+  }
+  .st{ font-family:var(--mono); font-size:.66rem; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3);
+    border:1px solid var(--line); border-radius:99px; padding:.3rem .7rem; white-space:nowrap; }
+  @media (max-width:820px){
+    .eng-row{ grid-template-columns:1fr; gap:.5rem; }
+    .st{ justify-self:start; }
+  }
 </style>

@@ -49,38 +49,49 @@ export const projects: Project[] = [
     stack: ['React Native', 'Next.js', 'NestJS', 'PostgreSQL', 'Cloudflare'],
     link: 'https://daysync.io',
   },
+];
+
+export type Engagement = {
+  name: string;
+  role: string;
+  outcome: string;
+  stack: string[];
+  status: string;
+};
+export const engagementsNote =
+  'Built for employers and clients — the products belong to them, so they are described here, not shown.';
+export const engagements: Engagement[] = [
   {
-    slug: 'kvitka',
-    name: 'KViTKA',
-    role: 'CTO · lead full-stack',
-    outcome:
-      'Fintech for the Ukrainian diaspora — EUR vIBANs, multi-asset wallets, a VISA virtual card. Zero to first production release in ~3 months, owning architecture, app, and backend.',
-    stack: ['React Native', 'MobX', 'NestJS', 'BaaS/KYC'],
-  },
-  {
-    slug: 'phreesia',
     name: 'Phreesia Provider Connect',
-    role: 'Team lead of 7',
-    agentic: true,
+    role: 'Team lead of 7 · via Lineate',
     outcome:
       'Healthcare data platform for provider engagement at one of the largest US healthcare companies. Rolled out agentic AI workflows that raised team delivery throughput ~40%.',
     stack: ['TypeScript', 'AWS', 'Airflow', 'Athena'],
+    status: 'Client platform · internal',
   },
   {
-    slug: 'trastra',
+    name: 'KViTKA',
+    role: 'CTO · lead full-stack · Global Ukraine',
+    outcome:
+      'Fintech for the Ukrainian diaspora — EUR vIBANs, multi-asset wallets, a VISA virtual card. Zero to first production release in ~3 months, owning architecture, app, and backend.',
+    stack: ['React Native', 'MobX', 'NestJS', 'BaaS/KYC'],
+    status: 'Employer product · offline',
+  },
+  {
     name: 'Trastra',
-    role: 'Frontend lead',
+    role: 'Frontend lead · via Codemotion',
     outcome:
       'Crypto-banking platform across web and mobile serving 400K+ users — OTP auth, full KYC flow, banking and crypto API integrations, real-time transaction alerts.',
     stack: ['React', 'React Native', 'MobX', 'Material UI'],
+    status: 'Employer product · offline',
   },
   {
-    slug: 'velas',
     name: 'Velas Account',
-    role: 'Mobile developer',
+    role: 'Mobile developer · Velas',
     outcome:
       'One-click, passwordless access to Web3 apps — secure cryptographic key management and QR-based dApp connect/sign flows.',
     stack: ['React Native', 'Web3', 'Cryptography'],
+    status: 'Employer product · offline',
   },
 ];
 
