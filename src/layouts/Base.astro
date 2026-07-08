@@ -1,4 +1,6 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '@fontsource/geist-sans/400.css';
 import '@fontsource/geist-sans/500.css';
 import '@fontsource/geist-sans/600.css';
@@ -52,7 +54,8 @@ const jsonLd = JSON.stringify({
     <meta name="twitter:image" content={`${url}/og.png`} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script type="application/ld+json" set:html={jsonLd} />
-    <!-- UMAMI ANALYTICS SCRIPT GOES HERE -->
+    <Analytics />
+    <SpeedInsights />
   </head>
   <body>
     <a class="skip" href="#about">Skip to content</a>
