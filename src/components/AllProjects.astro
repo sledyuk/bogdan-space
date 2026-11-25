@@ -1,0 +1,45 @@
+---
+import { allProjects, kindLabel, statusLabel } from '../data/site';
+---
+
+<section class="plist-sec wrap" id="all-projects" aria-labelledby="all-title">
+  <h2 class="sec-title" id="all-title">{allProjects.title}</h2>
+  <p class="plist-lead">{allProjects.lead}</p>
+
+  <ol class="sheet plist">
+    {allProjects.items.map((p) => (
+      <li>
+        <span class="picon">
+          {p.icon ? (
+            <img src={p.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />
+          ) : (
+            <span class="mono" style={`--m:${p.mono?.color ?? '#3F5B7A'}`} aria-hidden="true">{p.mono?.letters ?? p.name[0]}</span>
+          )}
+        </span>
+        <div class="pmain">
+          <h3>{p.name}</h3>
+          <p>{p.text}</p>
+        </div>
+        <div class="pmeta">
+          <span class="chip kind"><span class:list={['dot', p.kind]}></span>{kindLabel[p.kind]}</span>
+          {p.platforms.map((pl) => <span class="chip">{pl}</span>)}
+        </div>
+        <div class="pfoot">
+          <span class="yr">{p.years}</span>
+          <span class="chip status"><span class:list={['dot', p.status]}></span>{statusLabel[p.status]}</span>
+        </div>
+        {p.anchor ? (
+          <a class="plink" href={p.anchor} aria-label={`Read more about ${p.name}`} title="Read more">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+          </a>
+        ) : p.url ? (
+          <a class="plink" href={p.url} target="_blank" rel="noopener" aria-label={`Open the ${p.name} website`} title="Open website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </a>
+        ) : (
+          <span class="plink-none" aria-hidden="true"></span>
+        )}
+      </li>
+    ))}
+  </ol>
+</section>

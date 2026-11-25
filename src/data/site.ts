@@ -40,6 +40,13 @@ export const ownProducts = [
   { name: 'Kachkachi', href: '#kachkachi', icon: '/assets/work/kach-icon.webp' },
 ];
 
+// Projects menu in the dock: the three products with a full section on the page.
+export const featuredProjects = [
+  { name: 'DaySync', note: 'Own product, salon booking', href: '#daysync', icon: '/assets/work/ds-icon.webp' },
+  { name: 'Kachkachi', note: 'Own product, gift wishlists', href: '#kachkachi', icon: '/assets/work/kach-icon.webp' },
+  { name: 'AI Whisper', note: 'Freelance, live call assistant', href: '#aiwhisper', icon: '/assets/work/aw-icon.webp' },
+];
+
 /* ---------- from idea to release ---------- */
 
 export const ship = {
@@ -220,6 +227,161 @@ export const aiWhisper = {
   stackNote: 'The product belongs to the client, so it is described here and not shown.',
 };
 
+/* ---------- all projects ---------- */
+
+export type Status = 'live' | 'internal' | 'closed' | 'unlaunched';
+export const statusLabel: Record<Status, string> = {
+  live: 'Live',
+  internal: 'Internal',
+  closed: 'Closed',
+  unlaunched: 'Not launched',
+};
+
+export type ProjectEntry = {
+  name: string;
+  kind: Kind;
+  years: string;
+  status: Status;
+  text: string;
+  platforms: string[];
+  url?: string;
+  icon?: string; // square icon; without one the card shows a letter tile
+  mono?: { letters: string; color: string };
+  anchor?: string; // link to a full section on this page
+};
+
+export const allProjects = {
+  title: 'All projects',
+  lead: 'Everything I have built or shipped as a product, with where it stands today. Some are still running, some have closed.',
+  items: [
+    {
+      name: 'DaySync',
+      kind: 'own',
+      years: 'Now',
+      status: 'live',
+      text: 'Booking and business management for salons on iOS, Android and web.',
+      platforms: ['Mobile', 'Web', 'Backend'],
+      url: 'https://daysync.io',
+      icon: '/assets/work/ds-icon.webp',
+      anchor: '#daysync',
+    },
+    {
+      name: 'Kachkachi',
+      kind: 'own',
+      years: 'Now',
+      status: 'live',
+      text: 'Gift wishlists where friends reserve a gift and the owner never sees who took it.',
+      platforms: ['Web', 'Mobile'],
+      url: 'https://kachkachi.com',
+      icon: '/assets/work/kach-icon.webp',
+      anchor: '#kachkachi',
+    },
+    {
+      name: 'Beapoint',
+      kind: 'own',
+      years: '2020 – 2022',
+      status: 'unlaunched',
+      text: 'A booking and business app for beauty masters. I led the iOS and Android app and wrote the API.',
+      platforms: ['Mobile', 'Backend'],
+      icon: '/assets/projects/beapoint.webp',
+    },
+    {
+      name: 'AI Whisper',
+      kind: 'freelance',
+      years: '2026 – now',
+      status: 'live',
+      text: 'A live call assistant. I designed the platform and built the desktop app, web app, API and infrastructure.',
+      platforms: ['Desktop', 'Web', 'Backend'],
+      icon: '/assets/work/aw-icon.webp',
+      anchor: '#aiwhisper',
+    },
+    {
+      name: 'KloutAgent',
+      kind: 'freelance',
+      years: '2026',
+      status: 'live',
+      text: 'An email assistant for creators that sorts brand emails and drafts replies. I redesigned onboarding and the dashboard and built the AI reply composer.',
+      platforms: ['Web'],
+      url: 'https://kloutagent.com',
+      icon: '/assets/projects/kloutagent.webp',
+    },
+    {
+      name: 'Respite Co-op',
+      kind: 'freelance',
+      years: '2024 – now',
+      status: 'live',
+      text: 'A platform where family caregivers share respite care in small groups. I build the web app and its API.',
+      platforms: ['Web', 'Backend'],
+      url: 'https://www.respitecoop.com',
+      icon: '/assets/projects/respite.webp',
+    },
+    {
+      name: 'Dostata',
+      kind: 'freelance',
+      years: '2024 – 2025',
+      status: 'closed',
+      text: 'An AI chat companion for older people, with a side for their caregivers. I added subscriptions and voice input fixes and set up production builds.',
+      platforms: ['Mobile'],
+      icon: '/assets/projects/dostata.webp',
+    },
+    {
+      name: 'Audience Builder',
+      kind: 'company',
+      years: '2025 – 2026',
+      status: 'internal',
+      text: 'Campaign targeting for one of the largest US healthcare companies, built at Lineate.',
+      platforms: ['Web', 'Backend', 'Data'],
+      mono: { letters: 'AB', color: '#3F5B7A' },
+    },
+    {
+      name: 'KViTKA',
+      kind: 'company',
+      years: '2023 – 2025',
+      status: 'closed',
+      text: 'A banking app for Ukrainians in the EU: EUR vIBANs, wallets, a VISA virtual card and KYC.',
+      platforms: ['Mobile', 'Backend'],
+      icon: '/assets/projects/kvitka.webp',
+    },
+    {
+      name: 'Velas Account',
+      kind: 'company',
+      years: '2021 – 2023',
+      status: 'closed',
+      text: 'Passwordless access to Web3 apps, with key management and QR flows to connect and sign.',
+      platforms: ['Mobile'],
+      icon: '/assets/projects/velas.webp',
+    },
+    {
+      name: 'RunBuggy',
+      kind: 'company',
+      years: '2017 – 2021',
+      status: 'live',
+      text: 'Vehicle-transit tracking for car dealers and 6,000 transporters.',
+      platforms: ['Mobile'],
+      url: 'https://runbuggy.com',
+      mono: { letters: 'RB', color: '#1C8CD8' },
+    },
+    {
+      name: 'Trastra',
+      kind: 'company',
+      years: '2017 – 2021',
+      status: 'closed',
+      text: 'A crypto-banking platform for more than 400,000 users.',
+      platforms: ['Web', 'Mobile'],
+      mono: { letters: 'T', color: '#2E3A48' },
+    },
+    {
+      name: 'Famepick',
+      kind: 'company',
+      years: '2017 – 2021',
+      status: 'closed',
+      text: 'A platform that connected creators and brands.',
+      platforms: ['Web', 'Mobile'],
+      mono: { letters: 'F', color: '#0F2A4A' },
+    },
+  ] as ProjectEntry[],
+};
+
 /* ---------- experience ---------- */
 
 export type Kind = 'own' | 'freelance' | 'company';
@@ -254,6 +416,19 @@ export const experience: Job[] = [
     projects: [{ domains: ['Consumer'], platforms: ['Web', 'Mobile'], text: 'Gift wishlists on web and iOS.' }],
   },
   {
+    years: '2020 – 2022',
+    org: 'Beapoint',
+    role: 'Founder',
+    kind: 'own',
+    projects: [
+      {
+        domains: ['SaaS'],
+        platforms: ['Mobile', 'Backend'],
+        text: 'A booking and business app for beauty masters. I led the iOS and Android app and wrote the API. It did not launch.',
+      },
+    ],
+  },
+  {
     years: '2026 – now',
     org: 'AI Whisper',
     role: 'Product engineer',
@@ -263,6 +438,39 @@ export const experience: Job[] = [
         domains: ['AI'],
         platforms: ['Desktop', 'Web', 'Backend'],
         text: 'A live call assistant. I designed the platform and built the desktop app, web app, API and infrastructure.',
+      },
+    ],
+  },
+  {
+    years: '2026',
+    org: 'KloutAgent',
+    role: 'Product engineer',
+    kind: 'freelance',
+    projects: [
+      {
+        domains: ['AI', 'Creator economy'],
+        platforms: ['Web'],
+        text: 'An email assistant for creators. I redesigned onboarding and the dashboard and built the AI reply composer.',
+      },
+    ],
+  },
+  {
+    years: '2024 – now',
+    org: 'Dostata',
+    role: 'Product engineer',
+    kind: 'freelance',
+    projects: [
+      {
+        name: 'Respite Co-op',
+        domains: ['Care'],
+        platforms: ['Web', 'Backend'],
+        text: 'A platform where family caregivers share respite care in small groups. I build the web app and its API.',
+      },
+      {
+        name: 'Dostata app',
+        domains: ['AI', 'Care'],
+        platforms: ['Mobile'],
+        text: 'An AI chat companion for older people. Subscriptions, voice input and production builds. Now closed.',
       },
     ],
   },

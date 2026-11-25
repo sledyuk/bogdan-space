@@ -6,6 +6,7 @@ import Ship from '../components/Ship.astro';
 import DaySync from '../components/DaySync.astro';
 import Kachkachi from '../components/Kachkachi.astro';
 import AIWhisper from '../components/AIWhisper.astro';
+import AllProjects from '../components/AllProjects.astro';
 import Experience from '../components/Experience.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
@@ -17,12 +18,15 @@ import Dock from '../components/Dock.astro';
   <main id="main">
     <Hero />
     <Ship />
-    <div class="rooms" id="projects">
-      <DaySync />
-      <Kachkachi />
-      <AIWhisper />
-    </div>
     <Experience />
+    <div id="projects">
+      <div class="rooms">
+        <DaySync />
+        <Kachkachi />
+        <AIWhisper />
+      </div>
+      <AllProjects />
+    </div>
     <Contact />
   </main>
   <Footer />
