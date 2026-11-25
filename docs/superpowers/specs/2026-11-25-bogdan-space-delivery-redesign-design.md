@@ -45,8 +45,9 @@ are deliberately left out.
 - Page and dock order: How I ship, Experience, Projects.
 - Projects menu shows real app icons and links to a new "All projects" list.
 - "All projects": every shipped product with kind (own, freelance, company), platforms,
-  years and status (live, internal, closed, not launched). Added Beapoint (own, not
-  launched), KloutAgent, Respite Co-op and Dostata (freelance). Hiring test tasks
+  years and status (live, internal, closed, not launched). Added KloutAgent,
+  Respite Co-op and Dostata (freelance; Bogdan is fine with naming the client).
+  Beapoint is left out at Bogdan's request. Hiring test tasks
   (Sownd, TaxDome, CashMine, FanSuite) are left out on purpose. Frizo, the first version
   of DaySync, is left out because Bogdan asked not to describe where DaySync started.
 - Products without a usable icon (Audience Builder, RunBuggy, Trastra, Famepick) show
@@ -56,5 +57,3 @@ are deliberately left out.
 
 - Whether to add an "open to roles" line.
 - Which résumé PDF to serve (currently the Senior Software Engineer one).
-- Whether Respite Co-op and Dostata were freelance or employed work, and whether the
-  client is fine with being listed.

@@ -277,15 +277,6 @@ export const allProjects = {
       anchor: '#kachkachi',
     },
     {
-      name: 'Beapoint',
-      kind: 'own',
-      years: '2020 – 2022',
-      status: 'unlaunched',
-      text: 'A booking and business app for beauty masters. I led the iOS and Android app and wrote the API.',
-      platforms: ['Mobile', 'Backend'],
-      icon: '/assets/projects/beapoint.webp',
-    },
-    {
       name: 'AI Whisper',
       kind: 'freelance',
       years: '2026 – now',
@@ -414,19 +405,6 @@ export const experience: Job[] = [
     role: 'Founder',
     kind: 'own',
     projects: [{ domains: ['Consumer'], platforms: ['Web', 'Mobile'], text: 'Gift wishlists on web and iOS.' }],
-  },
-  {
-    years: '2020 – 2022',
-    org: 'Beapoint',
-    role: 'Founder',
-    kind: 'own',
-    projects: [
-      {
-        domains: ['SaaS'],
-        platforms: ['Mobile', 'Backend'],
-        text: 'A booking and business app for beauty masters. I led the iOS and Android app and wrote the API. It did not launch.',
-      },
-    ],
   },
   {
     years: '2026 – now',
