@@ -1,0 +1,52 @@
+---
+import { aiWhisper as p } from '../data/site';
+import Built from './Built.astro';
+---
+
+<section class="room room-aw" id="aiwhisper" aria-labelledby="aw-name">
+  <div class="wrap stack">
+    <div class="aw-head">
+      <div>
+        <h2 class="room-name" id="aw-name">{p.name}</h2>
+        <p class="room-lead">{p.lead}</p>
+        <p class="aw-role">{p.role}<small>{p.roleNote}</small></p>
+        <ul class="chips">
+          {p.editions.map((e) => <li class="chip">{e}</li>)}
+        </ul>
+      </div>
+      <div class="aw-icon">
+        <svg viewBox="0 0 90 64" role="img" aria-label="AI Whisper logo"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 36H11L15 30L19 42L26 14L33 52L39 30L45 52L51.5 26" stroke-width="4.5"></path><circle cx="54.2" cy="15.1" r="7" stroke-width="3"></circle><path d="M75 3C78 7 79 11 79 18L86 28L80 30L81 33.5L79.2 35L80.6 38C80.6 42 78 44 74 44V61" stroke-width="4.5"></path></g><path d="M55.3 10.6L55.75 15.5L53.1 19.6L52.65 14.7Z" fill="currentColor"></path></svg>
+      </div>
+    </div>
+
+    <div class="aw-cols sub-block">
+      <div class="panel">
+        <span class="tag">What I shipped</span>
+        <ul class="checks">
+          {p.shipped.map((s) => (
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              {s}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="tag">How a call flows</span>
+        <div class="flow">
+          {p.flow.map((f) => (
+            <div>
+              <h5>{f.title}</h5>
+              <ol>
+                {f.steps.map((s) => <li><span>{s}</span></li>)}
+              </ol>
+            </div>
+          ))}
+        </div>
+        <p class="fine">{p.logoNote}</p>
+      </div>
+    </div>
+
+    <Built stack={p.stack} note={p.stackNote} />
+  </div>
+</section>

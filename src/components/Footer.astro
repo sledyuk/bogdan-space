@@ -1,13 +1,10 @@
-<footer>
+---
+import { site } from '../data/site';
+---
+
+<footer class="wrap">
   <div class="foot">
-    <span>© <span id="year"></span> Bogdan Egikov</span>
-    <span>Tbilisi <span id="clock">--:--</span> UTC+4</span>
+    <span>© <span id="year">2026</span> {site.name}</span>
+    <span>{site.location}</span>
   </div>
 </footer>
-
-<style>
-  footer{ border-top:1px solid var(--line); }
-  .foot{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-family:var(--mono); font-size:.72rem; color:var(--ink-3); padding:1.5rem var(--pad); max-width:var(--max); margin:0 auto; }
-  #clock{ font-variant-numeric:tabular-nums; }
-  @media print{ footer{ display:none !important; } }
-</style>

@@ -1,5 +1,5 @@
-const el = document.getElementById('clock');
-const inline = document.getElementById('clockInline');
+// Tbilisi local time in every [data-clock] element, and the current year in the footer.
+const clocks = document.querySelectorAll<HTMLElement>('[data-clock]');
 const year = document.getElementById('year');
 if (year) year.textContent = String(new Date().getFullYear());
 
@@ -11,8 +11,7 @@ const fmt = new Intl.DateTimeFormat('en-GB', {
 
 function tick() {
   const t = fmt.format(new Date());
-  if (el) el.textContent = t;
-  if (inline) inline.textContent = `${t} UTC+4`;
+  clocks.forEach((el) => (el.textContent = t));
 }
 tick();
 setInterval(tick, 30_000);

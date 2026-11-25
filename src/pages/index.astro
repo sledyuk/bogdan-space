@@ -1,37 +1,36 @@
 ---
 import Base from '../layouts/Base.astro';
-import BgDecor from '../components/BgDecor.astro';
-import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import Facts from '../components/Facts.astro';
-import About from '../components/About.astro';
-import Work from '../components/Work.astro';
-import HowIBuild from '../components/HowIBuild.astro';
+import Ship from '../components/Ship.astro';
+import DaySync from '../components/DaySync.astro';
+import Kachkachi from '../components/Kachkachi.astro';
+import AIWhisper from '../components/AIWhisper.astro';
 import Experience from '../components/Experience.astro';
-import Stack from '../components/Stack.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import Dock from '../components/Dock.astro';
 ---
 
 <Base>
-  <BgDecor />
-  <TopBar />
-  <main>
+  <Header />
+  <main id="main">
     <Hero />
-    <Facts />
-    <About />
-    <Work />
-    <HowIBuild />
+    <Ship />
+    <div class="rooms" id="projects">
+      <DaySync />
+      <Kachkachi />
+      <AIWhisper />
+    </div>
     <Experience />
-    <Stack />
     <Contact />
   </main>
   <Footer />
+  <Dock />
   <script>
     import '../scripts/clock';
     import '../scripts/copy-email';
-    import '../scripts/parallax';
-    import '../scripts/reveal';
-    import '../scripts/countup';
+    import '../scripts/dock';
+    import '../scripts/experience';
   </script>
 </Base>

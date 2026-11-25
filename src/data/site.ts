@@ -1,167 +1,352 @@
+// All copy for bogdan.space lives here. Components only lay it out.
+
 export const site = {
   name: 'Bogdan Egikov',
   email: 'sledyuk@gmail.com',
   linkedin: 'https://www.linkedin.com/in/bogdan-egikov/',
+  github: 'https://github.com/sledyuk',
   resumePath: '/assets/Bogdan_Egikov_Resume.pdf',
   location: 'Tbilisi, Georgia',
   timezoneLabel: 'UTC+4',
 };
 
-export type Fact = { value: number; prefix?: string; suffix: string; label: string };
-export const facts: Fact[] = [
-  { value: 12, suffix: '+', label: 'Years shipping production software' },
-  { value: 400, suffix: 'K+', label: "Users on platforms I've built" },
-  { value: 40, prefix: '~', suffix: '%', label: 'Team throughput lift from agentic AI workflows' },
-  { value: 7, suffix: '', label: 'Engineers led as player-coach' },
-];
-
-export const aboutParagraphs: string[] = [
-  'I started in physics, not computer science — and it shows in how I work. I look for the underlying pattern before I write the first line of code, then build systems that hold up once real users, real money, or real patients are on the other end.',
-  'Over twelve years I\'ve architected and led delivery across fintech, adtech, and Web3 – usually as the first engineer, sometimes as CTO, always accountable for what ships. Lately my focus is AI-native engineering: agentic coding workflows built on Claude Code and MCP that measurably raise how fast a team delivers. On the side I run <a href="https://daysync.io" target="_blank" rel="noopener">DaySync</a>, a booking SaaS I built solo – live in the App Store, Google Play, and on the web.',
-];
-
-export const aboutMeta = [
-  { k: 'Based in', v: 'Tbilisi, Georgia — UTC+4' },
-  { k: 'Speaks', v: 'English, Ukrainian, Russian, Georgian' },
-  { k: 'Studied', v: 'Physics — Tbilisi State University' },
-  { k: 'Domains', v: 'FinTech · AdTech · Web3 · SaaS' },
-];
-
-export type Project = {
-  slug: string;
-  name: string;
-  role: string;
-  outcome: string;
-  stack: string[];
-  link?: string;
-  flagship?: boolean;
-  agentic?: boolean;
+export const meta = {
+  title: 'Bogdan Egikov, product engineer',
+  description:
+    'I take products from an idea to a live release: product design, iOS and Android, web, API and store releases. Founder of DaySync and Kachkachi. Based in Tbilisi, Georgia, working remotely (UTC+4).',
+  shortDescription:
+    'I take products from an idea to a live release. Founder of DaySync and Kachkachi. Tbilisi, remote UTC+4.',
 };
-export const projects: Project[] = [
-  {
-    slug: 'daysync',
-    name: 'DaySync',
-    role: 'Founder · solo engineer',
-    flagship: true,
-    agentic: true,
-    outcome:
-      'Booking & business-management SaaS for salons – iOS, Android, and web, designed, built, and operated solo. Live in the App Store & Google Play, developed with a fully agentic Claude Code workflow across all three repos, with AI-driven E2E testing (Maestro + MCP, Playwright).',
-    stack: ['React Native', 'Next.js', 'NestJS', 'PostgreSQL', 'Cloudflare'],
-    link: 'https://daysync.io',
-  },
-];
 
-export type Engagement = {
-  name: string;
-  role: string;
-  outcome: string;
-  stack: string[];
-  status: string;
+/* ---------- hero ---------- */
+
+export const hero = {
+  headline: 'I take products from an idea to a live release.',
+  lead: 'Design, apps, backend and the store release, end to end. AI agents write most of the code. I decide what ships.',
 };
-export const engagementsNote =
-  'Built for employers and clients — the products belong to them, so they are described here, not shown.';
-export const engagements: Engagement[] = [
-  {
-    name: 'Phreesia Provider Connect',
-    role: 'Team lead of 7 · via Lineate',
-    outcome:
-      'Audience Builder – an adtech campaign-targeting platform for one of the largest US healthcare companies. Built hands-on (React/Next.js + NestJS monorepo over AWS Airflow/Athena) while leading a team of 7; agentic AI workflows raised delivery throughput ~40%.',
-    stack: ['React/Next.js', 'NestJS', 'AWS Airflow', 'Athena'],
-    status: 'Client platform · internal',
-  },
-  {
-    name: 'KViTKA',
-    role: 'CTO · lead full-stack · Global Ukraine',
-    outcome:
-      'Fintech for the Ukrainian diaspora — EUR vIBANs, multi-asset wallets, a VISA virtual card. Zero to first production release in ~3 months, owning architecture, app, and backend.',
-    stack: ['React Native', 'MobX', 'NestJS', 'BaaS/KYC'],
-    status: 'Employer product · offline',
-  },
-  {
-    name: 'RunBuggy',
-    role: 'Mobile developer · via Codemotion',
-    outcome:
-      'Logistics app for car dealers to manage and track vehicle-transit orders in real time – serving 6,000+ verified transporters.',
-    stack: ['React Native', 'MobX', 'REST APIs'],
-    status: 'Client product · live',
-  },
-  {
-    name: 'Trastra',
-    role: 'Frontend & mobile · via Codemotion',
-    outcome:
-      'Crypto-banking platform across web and mobile serving 400K+ users — OTP auth, full KYC flow, banking and crypto API integrations, real-time transaction alerts.',
-    stack: ['React', 'React Native', 'MobX', 'Material UI'],
-    status: 'Employer product · offline',
-  },
-  {
-    name: 'Velas Account',
-    role: 'Mobile developer · Velas',
-    outcome:
-      'One-click, passwordless access to Web3 apps — secure cryptographic key management and QR-based dApp connect/sign flows.',
-    stack: ['React Native', 'Web3', 'Cryptography'],
-    status: 'Employer product · offline',
-  },
+
+export type SpecRow = { k: string; v?: string; products?: boolean };
+export const specRows: SpecRow[] = [
+  { k: 'Role', v: 'Product engineer, 12+ years' },
+  { k: 'Delivers', v: 'Product design, iOS and Android, web, API, store releases' },
+  { k: 'AI workflow', v: 'Claude Code agents, MCP, automated review and tests' },
+  { k: 'Own products', products: true },
+  { k: 'Stack', v: 'React Native, Next.js, NestJS, PostgreSQL' },
+  { k: 'Based in', v: 'Tbilisi, Georgia. Remote, UTC+4' },
 ];
 
-export const pipeline = [
-  { title: 'Spec', desc: 'Requirements distilled into a design doc before any code' },
-  { title: 'Claude Code agents', desc: 'Agentic implementation across mobile, web, and backend repos' },
-  { title: 'MCP integrations', desc: "Custom servers wire agents into the team's real tooling" },
-  { title: 'AI-assisted review & tests', desc: 'Automated review passes and test generation on every change' },
-  { title: 'Ship', desc: '~40% faster team delivery – incl. a client platform redesign shipped in ~26h vs a 56–80h estimate' },
+export const ownProducts = [
+  { name: 'DaySync', href: '#daysync', icon: '/assets/work/ds-icon.webp' },
+  { name: 'Kachkachi', href: '#kachkachi', icon: '/assets/work/kach-icon.webp' },
 ];
 
-export const experience = [
+/* ---------- from idea to release ---------- */
+
+export const ship = {
+  title: 'From idea to release',
+  lead: 'Every product on this page went through the same six steps. AI agents make each step faster. I stay responsible for every one of them.',
+  steps: [
+    {
+      title: 'Spec',
+      text: 'An idea becomes a GitHub issue with a written spec and acceptance criteria. Nothing is built until I mark it ready. Larger choices go into decision records: 75 in DaySync, 57 in Kachkachi.',
+      tools: ['GitHub issues', 'Decision records'],
+    },
+    {
+      title: 'Design',
+      text: 'A visual change starts as an HTML page with two or three rendered options side by side. The one I pick becomes tokens and components in code.',
+      tools: ['HTML prototypes', 'Design tokens'],
+    },
+    {
+      title: 'Build',
+      text: 'Claude Code agents write the change, each in its own git worktree. A reviewer agent, a QA agent and a localization checker go over it before I read it.',
+      tools: ['Claude Code', 'Git worktrees', 'MCP'],
+    },
+    {
+      title: 'Test',
+      text: 'Unit and end-to-end tests run on every change. Maestro drives the mobile app on a device, with a fresh account for each flow. Playwright covers the web.',
+      tools: ['Jest', 'Vitest', 'Maestro', 'Playwright'],
+    },
+    {
+      title: 'Release',
+      text: 'A hook stops agents from merging. I merge, which deploys the web, then submit the apps to the App Store and Google Play. Each release goes into a delivery log.',
+      tools: ['App Store', 'Google Play', 'Cloudflare'],
+    },
+    {
+      title: 'Learn',
+      text: 'Product analytics and error reports show what people actually do and where the app breaks. That becomes the next issue.',
+      tools: ['PostHog', 'Sentry'],
+    },
+  ],
+  proof: [
+    { value: '~26 h', label: 'A client platform redesign at Lineate, against an estimate of 56 to 80 hours' },
+    { value: '~40%', label: 'More delivery throughput after a team of seven moved to this workflow' },
+    { value: '~3 mo', label: 'From an empty repository to the first production release of a fintech app' },
+    { value: '770/1,027', label: 'Kachkachi commits with Claude as co-author' },
+  ],
+};
+
+/* ---------- products ---------- */
+
+export type Card = { tag: string; title: string; text: string };
+
+export const daysync = {
+  name: 'DaySync',
+  url: 'https://daysync.io',
+  lead: 'Booking and business management for salons, barbers and solo masters. I designed it and built the iOS and Android app, the web app, the booking pages and the API. Every release goes out through the six steps above.',
+  role: 'Founder',
+  roleNote: 'Design, engineering and releases',
+  platforms: ['iOS', 'Android', 'Web app', 'Booking pages'],
+  stats: [
+    { value: '2.8.0', label: 'Latest release, November 2026' },
+    { value: '4', label: 'Languages: English, Georgian, Ukrainian, Russian' },
+    { value: '6,241', label: 'API tests: 5,297 unit and 944 end-to-end' },
+    { value: '7,404', label: 'Tests in the mobile app' },
+  ],
+  decisionsNote: 'The app was redesigned in 2026. These are the choices I would defend in a design review.',
+  features: [
+    {
+      tag: 'Navigation',
+      title: 'One dock for the whole app',
+      text: [
+        'A plus button sits in the same place on every screen. Beside it, one panel shows the tabs on top-level screens and the page’s own actions deeper in.',
+        'Only the icons crossfade, so it reads as a single panel changing its contents. I prototyped a glass version first and dropped it because it washed out over busy lists.',
+      ],
+    },
+    {
+      tag: 'AI assistants',
+      title: 'The schedule inside an assistant',
+      text: [
+        'DaySync has its own connector for assistants such as Claude. An owner can ask for today’s schedule, find a free slot or move an appointment from a chat.',
+        'Its 13 tools pass through the same role checks as the app. A client name that is hidden from a staff member in the app stays hidden in the assistant. I also wrote the sign-in server behind it.',
+      ],
+    },
+  ],
+  cards: [
+    {
+      tag: 'Home screen',
+      title: 'The first screen is about today’s money',
+      text: 'My Day opens with revenue, the amount still to collect and a ring showing how much of it is in. Under that sits the visit happening now, with a Check out button.',
+    },
+    {
+      tag: 'Schedule',
+      title: 'A timeline written from scratch',
+      text: 'Two calendar libraries came out of the project, and carousels built on lists flashed during swipes. The schedule is a custom timeline on a native pager, with overlapping visits laid out in columns.',
+    },
+    {
+      tag: 'Time zones',
+      title: 'The salon’s clock, wherever the owner is',
+      text: 'Every day and time follows the business time zone. An owner who travels opens the app and sees the salon’s day, not their own.',
+    },
+    {
+      tag: 'Forms',
+      title: 'Save is never greyed out',
+      text: 'Tapping Save on an unfinished form moves the cursor to the field that is missing. Nobody has to guess why a button does nothing.',
+    },
+    {
+      tag: 'Modals',
+      title: 'Five kinds, one component each',
+      text: 'Menu, alert, picker, sheet and full screen. They replaced about nine families of popups. Pickers for clients and services became ordinary pages.',
+    },
+    {
+      tag: 'Booking page',
+      title: 'Every accent colour is tested',
+      text: 'Owners pick one of 12 accent colours for their booking page. A unit test checks each of them for 4.5:1 contrast on buttons.',
+    },
+  ] as Card[],
+  stack: ['React Native', 'MobX', 'NestJS', 'Prisma', 'PostgreSQL', 'Next.js', 'Cloudflare Workers'],
+  stackNote: 'Subscriptions from Apple, Google and Paddle land in one ledger, and every write carries an idempotency key.',
+};
+
+export const kachkachi = {
+  name: 'Kachkachi',
+  url: 'https://kachkachi.com',
+  appStore: 'https://apps.apple.com/app/id6821174052',
+  georgian: 'კაჭკაჭი',
+  georgianNote: 'is Georgian for magpie.',
+  lead: 'A free gift wishlist. Make a list, add gifts from any shop link and share one link. Friends reserve a gift without an account, and the owner never sees who took it. I took it from the first idea to a live web app and an approved iOS app.',
+  role: 'Founder',
+  roleNote: 'Design, engineering and releases',
+  status: [
+    { label: 'Web', state: 'live' },
+    { label: 'iOS', state: 'live' },
+    { label: 'Android, in review', state: 'wait' },
+    { label: 'Georgian, English, Russian' },
+  ] as { label: string; state?: 'live' | 'wait' }[],
+  cards: [
+    {
+      tag: 'Privacy',
+      title: 'The surprise is a rule in the code',
+      text: 'The list owner never learns who reserved a gift. In the repository, any query that could leak it counts as a blocking bug.',
+    },
+    {
+      tag: 'Mascot',
+      title: 'One bird from one drawing kit',
+      text: 'Kach has 12 poses and 6 outfits for occasions. Those, the stickers and the spot illustrations are all generated from one drawing kit in code, so he is the same bird everywhere.',
+    },
+    {
+      tag: 'Purchases',
+      title: 'A bug the tests could not see',
+      text: 'App Store purchases failed while the test suite stayed green. Tests ran on Node, production ran on Cloudflare Workers, and a crypto library handled keys differently there. I moved the keys to Web Crypto.',
+    },
+    {
+      tag: 'Shop links',
+      title: 'Shops that block the server',
+      text: 'Georgian shops refused requests from the server’s region, so links from those shops came back empty. A second reader now runs outside that region.',
+    },
+  ] as Card[],
+  stack: ['Next.js', 'Cloudflare Workers', 'Expo', 'React Native', 'PostgreSQL', 'Drizzle'],
+  stackNote: 'One primary action per screen, no tutorials, no social feed.',
+};
+
+export const aiWhisper = {
+  name: 'AI Whisper',
+  lead: 'A live assistant for calls. A desktop app listens to both sides of a conversation and shows hints while it is still going. After the call the platform returns a transcript, a score and a review.',
+  role: 'Product engineer, freelance',
+  roleNote: 'I designed the platform and built it through to production.',
+  editions: ['Sales', 'Tutoring', 'Business meetings', 'Georgian and English'],
+  shipped: [
+    'Merged two separate dashboards into one web app.',
+    'Moved the API from MongoDB to PostgreSQL.',
+    'Rebuilt the desktop app from Electron to Tauri 2, with native audio capture on macOS and Windows.',
+    'Set up staging and production as code, with encrypted database storage and nightly backups whose restore has been tested.',
+    'Took the new platform to production in November 2026.',
+  ],
+  flow: [
+    { title: 'During the call', steps: ['Both voices', 'Live transcript', 'Hint on screen'] },
+    { title: 'After the call', steps: ['Transcript', 'Score', 'Review'] },
+  ],
+  logoNote: 'I also drew the logo: a voice wave writes a W and points at a compass beside a face.',
+  stack: ['Tauri 2', 'Rust', 'Next.js', 'NestJS', 'PostgreSQL', 'Python', 'FastAPI'],
+  stackNote: 'The product belongs to the client, so it is described here and not shown.',
+};
+
+/* ---------- experience ---------- */
+
+export type Kind = 'own' | 'freelance' | 'company';
+export type Project = { name?: string; domains: string[]; platforms: string[]; text: string };
+export type Job = { years: string; org: string; role: string; kind: Kind; projects: Project[] };
+
+export const kindLabel: Record<Kind, string> = {
+  own: 'Own product',
+  freelance: 'Freelance',
+  company: 'Company',
+};
+
+export const experience: Job[] = [
   {
-    years: '2025 — 2026',
-    org: 'Lineate · Phreesia',
-    role: 'Senior Engineer / Team Lead',
-    summary:
-      'Built Audience Builder – an adtech campaign-targeting platform for one of the largest US healthcare companies – hands-on (React/Next.js + NestJS) while leading a cross-functional team of 7; agentic AI workflows raised delivery throughput ~40%.',
-  },
-  {
-    years: '2023 — 2025',
-    org: 'Global Ukraine · KViTKA',
-    role: 'CTO / Lead Full-Stack',
-    summary:
-      'Took a diaspora-banking fintech from a blank repo to production in ~3 months — EUR vIBANs, multi-asset wallets, a VISA virtual card — owning architecture, app, and backend end to end.',
-  },
-  {
-    years: '2023 — now',
+    years: 'Now',
     org: 'DaySync',
-    role: 'Independent product',
-    summary:
-      'Booking & business-management SaaS for salons – iOS, Android, and web, designed, built, and operated solo; live in the App Store & Google Play, with AI-driven E2E testing (Maestro + MCP, Playwright).',
+    role: 'Founder',
+    kind: 'own',
+    projects: [
+      {
+        domains: ['SaaS'],
+        platforms: ['Mobile', 'Web', 'Backend'],
+        text: 'Booking and business management for salons on iOS, Android and web.',
+      },
+    ],
   },
   {
-    years: '2021 — 2023',
+    years: 'Now',
+    org: 'Kachkachi',
+    role: 'Founder',
+    kind: 'own',
+    projects: [{ domains: ['Consumer'], platforms: ['Web', 'Mobile'], text: 'Gift wishlists on web and iOS.' }],
+  },
+  {
+    years: '2026 – now',
+    org: 'AI Whisper',
+    role: 'Product engineer',
+    kind: 'freelance',
+    projects: [
+      {
+        domains: ['AI'],
+        platforms: ['Desktop', 'Web', 'Backend'],
+        text: 'A live call assistant. I designed the platform and built the desktop app, web app, API and infrastructure.',
+      },
+    ],
+  },
+  {
+    years: '2025 – 2026',
+    org: 'Lineate',
+    role: 'Senior engineer and team lead',
+    kind: 'company',
+    projects: [
+      {
+        name: 'Audience Builder, for Phreesia',
+        domains: ['Adtech'],
+        platforms: ['Web', 'Backend', 'Data'],
+        text: 'A campaign-targeting platform for one of the largest US healthcare companies. I led a team of seven and brought agentic development to it.',
+      },
+    ],
+  },
+  {
+    years: '2023 – 2025',
+    org: 'Global Ukraine',
+    role: 'CTO and lead full-stack engineer',
+    kind: 'company',
+    projects: [
+      {
+        name: 'KViTKA',
+        domains: ['Fintech'],
+        platforms: ['Mobile', 'Backend'],
+        text: 'A banking app for Ukrainians in the EU, from an empty repository to its first production release in about three months: EUR vIBANs, multi-asset wallets, a VISA virtual card and KYC.',
+      },
+    ],
+  },
+  {
+    years: '2021 – 2023',
     org: 'Velas',
-    role: 'Mobile Developer',
-    summary:
-      'Built Velas Account — one-click, passwordless access to Web3 apps with secure cryptographic key management and QR-based dApp connect/sign flows.',
+    role: 'Mobile developer',
+    kind: 'company',
+    projects: [
+      {
+        name: 'Velas Account',
+        domains: ['Crypto'],
+        platforms: ['Mobile'],
+        text: 'Passwordless access to Web3 apps, with key management and QR flows to connect and sign.',
+      },
+    ],
   },
   {
-    years: '2017 — 2021',
-    org: 'Codemotion · Trastra & Famepick',
-    role: 'Frontend & Mobile Developer',
-    summary:
-      'Delivered the Trastra crypto-banking platform (web + mobile, 400K+ users, full KYC), built the RunBuggy logistics app serving 6,000+ verified transporters, and built front-end for Famepick, a creator–brand SaaS.',
+    years: '2017 – 2021',
+    org: 'Codemotion',
+    role: 'Frontend and mobile developer',
+    kind: 'company',
+    projects: [
+      {
+        name: 'Trastra',
+        domains: ['Fintech', 'Crypto'],
+        platforms: ['Web', 'Mobile'],
+        text: 'A crypto-banking platform for more than 400,000 users.',
+      },
+      { name: 'RunBuggy', domains: ['Logistics'], platforms: ['Mobile'], text: 'Vehicle-transit tracking for 6,000 transporters.' },
+      { name: 'Famepick', domains: ['SaaS'], platforms: ['Web', 'Mobile'], text: 'A platform that connects creators and brands.' },
+    ],
   },
   {
-    years: '2013 — 2017',
-    org: 'Apex LTD',
-    role: 'Full-Stack Developer',
-    summary:
-      'Led the front-end of a cloud ERP unifying accounting, inventory, banking, and CRM; drove the migration from a .NET stack to a modern JavaScript frontend.',
+    years: '2013 – 2017',
+    org: 'Apex',
+    role: 'Full-stack developer',
+    kind: 'company',
+    projects: [
+      {
+        name: 'Cloud ERP',
+        domains: ['Business software'],
+        platforms: ['Web'],
+        text: 'Accounting, inventory, banking and CRM in one product. I led the frontend and its move from .NET to JavaScript.',
+      },
+    ],
   },
 ];
 
-export const stackRows = [
-  { k: 'Core', v: ['TypeScript', 'React', 'React Native', 'Next.js', 'NestJS', 'Node.js'] },
-  { k: 'Mobile', v: ['React Navigation', 'MobX', 'biometric auth', 'push & deep links', 'App Store / Google Play releases'] },
-  { k: 'Testing', v: ['Maestro (mobile E2E)', 'Playwright (web E2E)', 'AI-generated tests (Jest)'] },
-  { k: 'Data & Infra', v: ['PostgreSQL', 'Redis', 'AWS (Airflow, Athena, Lambda)', 'Cloudflare', 'Docker', 'CI/CD'] },
-  { k: 'Payments', v: ['Stripe', 'Paddle', 'in-app purchases', 'Adapty'] },
-  { k: 'AI-Native', v: ['Claude Code', 'MCP', 'agentic pipelines', 'AI-assisted review & testing'] },
-  { k: 'Practice', v: ['System design', 'technical leadership', 'mentoring', 'Agile/Scrum', 'code review'] },
-];
+export const about = {
+  text: 'I studied physics at Tbilisi State University and have written software for a living since 2013. I speak Georgian, Russian and Ukrainian natively and work in English.',
+  dayToDay: ['TypeScript', 'React Native', 'React', 'Next.js', 'Node.js', 'NestJS', 'PostgreSQL', 'Cloudflare', 'AWS'],
+  also: ['Stripe', 'Paddle', 'In-app purchases', 'Claude Code', 'MCP', 'Maestro', 'Playwright'],
+};
+
+export const contact = {
+  title: 'Have an idea to ship?',
+  text: 'If you need one person to take a product from the first sketch to the App Store, Google Play and the web, write to me.',
+};

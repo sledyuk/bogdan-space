@@ -1,0 +1,56 @@
+---
+import { kachkachi as p } from '../data/site';
+import Built from './Built.astro';
+---
+
+<section class="room room-kk" id="kachkachi" aria-labelledby="kk-name">
+  <div class="wrap stack">
+    <div class="kk-grid">
+      <div>
+        <div class="kk-title">
+          <h2 class="room-name" id="kk-name">{p.name}</h2>
+          <img class="kk-bird" src="/assets/work/kach-bird.webp" alt="Kach, the magpie mascot" width="400" height="356" loading="lazy" decoding="async" />
+        </div>
+        <p class="kk-word" lang="ka">{p.georgian} <span lang="en">{p.georgianNote}</span></p>
+        <p class="room-lead">{p.lead}</p>
+        <p class="kk-role">{p.role}<small>{p.roleNote}</small></p>
+        <ul class="chips">
+          {p.status.map((s) => (
+            <li class="chip">{s.state && <span class:list={['dot', { wait: s.state === 'wait' }]}></span>}{s.label}</li>
+          ))}
+        </ul>
+        <div class="btn-row">
+          <a class="room-btn" href={p.url} target="_blank" rel="noopener">Open kachkachi.com</a>
+          <a href={p.appStore} target="_blank" rel="noopener">App Store</a>
+        </div>
+      </div>
+
+      <ul class="kk-phones">
+        <li>
+          <figure>
+            <div class="phone drift"><img src="/assets/work/kach-home.webp" alt="Kachkachi home: my wishes and lists with days left" width="520" height="1130" loading="lazy" decoding="async" /></div>
+            <figcaption>Home</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="phone drift slow"><img src="/assets/work/kach-taken.webp" alt="A birthday list: one gift is marked Taken, with no name next to it" width="520" height="1130" loading="lazy" decoding="async" /></div>
+            <figcaption>A list, one gift taken</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="cards two sub-block">
+      {p.cards.map((c) => (
+        <li class="panel">
+          <span class="tag">{c.tag}</span>
+          <h4>{c.title}</h4>
+          <p>{c.text}</p>
+        </li>
+      ))}
+    </ul>
+
+    <Built stack={p.stack} note={p.stackNote} />
+  </div>
+</section>

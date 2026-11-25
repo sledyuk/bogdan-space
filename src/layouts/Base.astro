@@ -5,60 +5,57 @@ import '@fontsource/geist-sans/400.css';
 import '@fontsource/geist-sans/500.css';
 import '@fontsource/geist-sans/600.css';
 import '@fontsource/geist-sans/700.css';
-import '@fontsource/geist-mono/400.css';
 import '@fontsource/geist-mono/500.css';
 import '../styles/global.css';
+import { site, meta } from '../data/site';
 
-const title = 'Bogdan Egikov – Senior Software Engineer · React Native, React/Next.js, NestJS';
-const description =
-  'Senior product engineer – 12+ years building web and mobile products end to end across fintech and adtech. React Native, React/Next.js, NestJS. AI-native, agentic development. Based in Tbilisi, Georgia (remote, UTC+4).';
-const shortDescription =
-  '12+ years building web & mobile products end to end across fintech and adtech. React Native, React/Next.js, NestJS.';
 const url = 'https://bogdan.space';
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Bogdan Egikov',
-  jobTitle: 'Senior Software Engineer',
-  email: 'mailto:sledyuk@gmail.com',
+  name: site.name,
+  jobTitle: 'Product Engineer',
+  email: `mailto:${site.email}`,
   url,
+  image: `${url}/assets/portrait.webp`,
   address: { '@type': 'PostalAddress', addressLocality: 'Tbilisi', addressCountry: 'GE' },
-  sameAs: ['https://www.linkedin.com/in/bogdan-egikov/', 'https://daysync.io'],
+  sameAs: [site.linkedin, site.github, 'https://daysync.io', 'https://kachkachi.com'],
 });
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="author" content="Bogdan Egikov" />
-    <meta name="theme-color" content="#141416" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <meta name="author" content={site.name} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#F3F5F6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B1622" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={url} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Bogdan Egikov" />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={shortDescription} />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.shortDescription} />
     <meta property="og:image" content={`${url}/og.png`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:alt" content="Bogdan Egikov. I take products from an idea to a live release." />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={shortDescription} />
+    <meta name="twitter:title" content={meta.title} />
+    <meta name="twitter:description" content={meta.shortDescription} />
     <meta name="twitter:image" content={`${url}/og.png`} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <script type="application/ld+json" set:html={jsonLd} />
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
     <Analytics />
     <SpeedInsights />
   </head>
   <body>
-    <a class="skip" href="#about">Skip to content</a>
+    <a class="skip" href="#main">Skip to content</a>
     <slot />
   </body>
 </html>

@@ -1,0 +1,86 @@
+---
+import { daysync as p } from '../data/site';
+import Built from './Built.astro';
+---
+
+<section class="room room-ds" id="daysync" aria-labelledby="ds-name">
+  <div class="wrap stack">
+    <div class="room-head">
+      <div>
+        <h2 class="room-name" id="ds-name">{p.name}</h2>
+        <p class="room-lead">{p.lead}</p>
+      </div>
+      <div class="panel role-card">
+        <p class="role">{p.role}<small>{p.roleNote}</small></p>
+        <ul class="chips">
+          {p.platforms.map((x) => <li class="chip"><span class="dot"></span>{x}</li>)}
+        </ul>
+        <div class="btn-row"><a class="room-btn" href={p.url} target="_blank" rel="noopener">Open daysync.io</a></div>
+      </div>
+    </div>
+
+    <ul class="stats">
+      {p.stats.map((s) => (
+        <li class="panel stat"><b class="num">{s.value}</b><span>{s.label}</span></li>
+      ))}
+    </ul>
+
+    <div class="stage">
+      <ul class="ds-screens">
+        <li>
+          <figure>
+            <div class="phone drift"><img src="/assets/work/ds-myday.webp" alt="My Day: revenue, amount to collect, the visit in progress and today's visits" width="640" height="1392" loading="lazy" decoding="async" /></div>
+            <figcaption>My Day</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <div class="phone drift slow"><img src="/assets/work/ds-schedule.webp" alt="Schedule: a day timeline with three team members side by side" width="640" height="1392" loading="lazy" decoding="async" /></div>
+            <figcaption>Schedule</figcaption>
+          </figure>
+        </li>
+        <li class="wide">
+          <figure>
+            <div class="shot"><img src="/assets/work/ds-web.webp" alt="Web app: a week calendar for a team of six" width="1280" height="800" loading="lazy" decoding="async" /></div>
+            <figcaption>Week view in the web app</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h3 class="sub">Decisions in the interface</h3>
+      <p class="sub-note">{p.decisionsNote}</p>
+    </div>
+
+    <div class="panel feature">
+      <div>
+        <span class="tag">{p.features[0].tag}</span>
+        <h4>{p.features[0].title}</h4>
+        {p.features[0].text.map((t) => <p>{t}</p>)}
+      </div>
+      <div class="media crop"><img src="/assets/work/ds-myday.webp" alt="The dock at the bottom of the My Day screen: a plus button and a panel of tabs" width="640" height="1392" loading="lazy" decoding="async" /></div>
+    </div>
+
+    <div class="panel feature flip">
+      <div>
+        <span class="tag">{p.features[1].tag}</span>
+        <h4>{p.features[1].title}</h4>
+        {p.features[1].text.map((t) => <p>{t}</p>)}
+      </div>
+      <div class="media shot"><img src="/assets/work/ds-mcp.webp" alt="A Today card shown inside an assistant: appointments with times, prices and statuses, one client name hidden" width="900" height="851" loading="lazy" decoding="async" /></div>
+    </div>
+
+    <ul class="cards">
+      {p.cards.map((c) => (
+        <li class="panel">
+          <span class="tag">{c.tag}</span>
+          <h4>{c.title}</h4>
+          <p>{c.text}</p>
+        </li>
+      ))}
+    </ul>
+
+    <Built stack={p.stack} note={p.stackNote} />
+  </div>
+</section>

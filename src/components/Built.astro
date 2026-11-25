@@ -1,0 +1,15 @@
+---
+interface Props {
+  stack: string[];
+  note: string;
+}
+const { stack, note } = Astro.props;
+---
+
+<div class="built">
+  <span>Built with</span>
+  <ul class="chips">
+    {stack.map((s) => <li class="chip">{s}</li>)}
+  </ul>
+  <p class="built-note">{note}</p>
+</div>

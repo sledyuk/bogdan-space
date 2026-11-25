@@ -1,0 +1,29 @@
+---
+import { ship } from '../data/site';
+---
+
+<section class="ship wrap" id="process" aria-labelledby="ship-title">
+  <div class="ship-head">
+    <h2 class="sec-title" id="ship-title">{ship.title}</h2>
+    <p class="lead">{ship.lead}</p>
+  </div>
+  <ol class="ship-steps">
+    {ship.steps.map((s) => (
+      <li>
+        <h3>{s.title}</h3>
+        <p>{s.text}</p>
+        <ul class="chips">
+          {s.tools.map((t) => <li class="chip">{t}</li>)}
+        </ul>
+      </li>
+    ))}
+  </ol>
+  <ul class="proof" aria-label="Delivery results">
+    {ship.proof.map((p) => (
+      <li>
+        <b class="num">{p.value}</b>
+        <span>{p.label}</span>
+      </li>
+    ))}
+  </ul>
+</section>
